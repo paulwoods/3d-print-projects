@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pi 5 + U2500 wall case: assembly</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 16px/1.55 system-ui, sans-serif; max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+  h1 { font-size: 1.6rem; margin-bottom: .2rem; }
+  h2 { font-size: 1.2rem; margin-top: 2.2rem; border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent); padding-bottom: .2rem; }
+  .sub { opacity: .7; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: .35rem .6rem .35rem 0; border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent); vertical-align: top; }
+  ol.steps { list-style: none; padding: 0; counter-reset: s; }
+  ol.steps > li { counter-increment: s; margin: .7rem 0; }
+  ol.steps label { display: grid; grid-template-columns: auto 1fr; gap: .6rem; cursor: pointer; }
+  ol.steps label span::before { content: counter(s) ". "; font-weight: 600; }
+  input:checked + span { opacity: .5; text-decoration: line-through; }
+  .note { border-left: 4px solid #d97706; padding: .5rem .8rem; margin: 1rem 0; background: color-mix(in srgb, #d97706 10%, transparent); }
+  code { font-size: .9em; }
+  @media print { input { display: none; } ol.steps label { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>Raspberry Pi 5 + 52Pi U2500 wall case</h1>
+<p class="sub">Assembly instructions for the v2 case. The ticks are not saved; reloading the page clears them.</p>
+
+<div class="note">
+  This design has not been test-printed. Do the fit checks in section 2 before you put any electronics in.
+</div>
+
+<h2>What you need</h2>
+<table>
+  <tr><th>Printed parts</th><td><code>pi5_case_base.stl</code>, <code>pi5_case_lid.stl</code>, <code>pi5_drill_template.stl</code></td></tr>
+  <tr><th>Electronics</th><td>Raspberry Pi 5, 52Pi U2500 HAT with its standoffs, screws, ribbon and USB bridge, M.2 NVMe SSD (2230 or 2242)</td></tr>
+  <tr><th>Stack screws</th><td>4 × M2.5 × 16 button head socket cap</td></tr>
+  <tr><th>Lid screws</th><td>4 × M3 × 10 self-tapping (thread-forming for plastic). Do not go longer than 12 mm.</td></tr>
+  <tr><th>Wall screws</th><td>2 × #6 or #8 pan head (or 4 mm). The head must be no wider than 9 mm and no thicker than 3 mm. Add anchors to suit your wall.</td></tr>
+  <tr><th>Tools</th><td>1.5 mm hex key, screwdriver for the M3 and wall screws, drill, pencil, spirit level, 3 mm and 5 mm drill bits for cleaning holes</td></tr>
+</table>
+
+<h2>1. Print</h2>
+<ol class="steps">
+  <li><label><input type="checkbox"><span>Print the <b>base</b> as exported, with the flat back on the bed. No supports. PETG is the better choice for a warm enclosure; PLA will work.</span></label></li>
+  <li><label><input type="checkbox"><span>Print the <b>lid</b> as exported, with the flat outer face on the bed and the lip pointing up. No supports.</span></label></li>
+  <li><label><input type="checkbox"><span>Print the <b>drill template</b> flat. It is 1.2 mm thick.</span></label></li>
+</ol>
+
+<h2>2. Clean up and check the fit</h2>
+<ol class="steps">
+  <li><label><input type="checkbox"><span>On the back of the base, clear the four screw holes with a 3 mm bit turned by hand. Clear the four head recesses with a 5 mm bit if they have sagged.</span></label></li>
+  <li><label><input type="checkbox"><span>Drop an M2.5 × 16 screw into each hole from the back. The head must sit below the back surface, and about 6.5 mm of thread must show above each standoff inside the case.</span></label></li>
+  <li><label><input type="checkbox"><span>Thread one M2.5 × 16 screw into the bottom of a U2500 standoff by hand. It must go in at least 5 mm. If it stops sooner, do not assemble; the screws will bottom out before they clamp the Pi.</span></label></li>
+  <li><label><input type="checkbox"><span>Slide a wall screw head into each keyhole on the back: in through the round hole, then along the slot. It must move freely to the end of the slot.</span></label></li>
+  <li><label><input type="checkbox"><span>Put the lid on the empty base. The lip must drop inside the walls without force. Drive each M3 screw into its corner once to cut the thread, then remove the lid.</span></label></li>
+</ol>
+
+<h2>3. Put the screws in the wall</h2>
+<p>The case hangs with the USB and Ethernet ports pointing down. The two wall screws sit one above the other, 57 mm apart.</p>
+<ol class="steps">
+  <li><label><input type="checkbox"><span>Hold the drill template on the wall where the case will go, with the cut-out arrow pointing <b>up</b>. Leave at least 100 mm clear below it for cables and the USB bridge.</span></label></li>
+  <li><label><input type="checkbox"><span>Level it: the two small holes must be vertically in line. Mark the wall through both holes. These are the final screw positions.</span></label></li>
+  <li><label><input type="checkbox"><span>Drill, fit anchors if needed, and drive both screws. Leave about 2.5 mm between the wall and the underside of each screw head.</span></label></li>
+  <li><label><input type="checkbox"><span>Hang the empty base to test: place the round holes over the screw heads, then slide the case <b>down</b> about 10 mm. Adjust the screw depth until it sits firm against the wall, then take it down again.</span></label></li>
+</ol>
+
+<h2>4. Build the stack</h2>
+<p>Follow 52Pi's own instructions for the U2500 where they differ from these. Do not connect power until section 6.</p>
+<ol class="steps">
+  <li><label><input type="checkbox"><span>Fit the SSD to the U2500 and secure it with the kit's retention screw.</span></label></li>
+  <li><label><input type="checkbox"><span>Fix the four standoffs to the <b>underside of the U2500</b> with the kit screws from the top. Leave the bottom of each standoff empty; the case screws go there.</span></label></li>
+  <li><label><input type="checkbox"><span>Insert the microSD card now if you use one. You can also reach the slot later through the opening in the top end of the case.</span></label></li>
+  <li><label><input type="checkbox"><span>Connect the PCIe ribbon between the Pi and the U2500. Check that both latches are closed and the ribbon is square in each connector.</span></label></li>
+  <li><label><input type="checkbox"><span>Lower the Pi into the base so it rests on the four posts, with the USB and Ethernet ports in the open end and the USB-C and HDMI ports in the side slot.</span></label></li>
+  <li><label><input type="checkbox"><span>Lower the U2500 onto the Pi so the standoffs sit over the Pi's four mounting holes. The ribbon loop goes into the 6 mm gap at the closed end. It must not be pinched.</span></label></li>
+  <li><label><input type="checkbox"><span>Hold the stack down with one hand, turn the case over, and drive the four M2.5 × 16 screws through the back into the standoffs. Start all four before you tighten any. Stop when they are snug; over-tightening will crack the printed posts.</span></label></li>
+  <li><label><input type="checkbox"><span>Push the U2500's USB bridge into the Pi's two blue USB 3 ports. It sticks out about 9.5 mm past the end of the case.</span></label></li>
+</ol>
+
+<h2>5. Close the case</h2>
+<ol class="steps">
+  <li><label><input type="checkbox"><span>Check that there is a visible gap between the top of the U2500's Ethernet jacks and the top of the walls. It should be about 2 mm.</span></label></li>
+  <li><label><input type="checkbox"><span>Fit the lid with the lip down. The lip has no edge at the open port end, so that tells you which way round it goes.</span></label></li>
+  <li><label><input type="checkbox"><span>Drive the four M3 screws into the corners until snug.</span></label></li>
+</ol>
+
+<h2>6. Hang it and connect</h2>
+<ol class="steps">
+  <li><label><input type="checkbox"><span>Hang the case with the ports down: round holes over the screw heads, then slide down until it stops.</span></label></li>
+  <li><label><input type="checkbox"><span>Connect Ethernet, HDMI and any USB devices. Connect USB-C power last.</span></label></li>
+  <li><label><input type="checkbox"><span>After it boots, run a load for ten minutes and check the temperature with <code>vcgencmd measure_temp</code>. The Pi has no cooler in this build. If it passes 80 °C it will throttle; the case has room under the U2500 for the official Active Cooler.</span></label></li>
+</ol>
+
+<h2>If something does not fit</h2>
+<table>
+  <tr><th>Problem</th><th>Change in <code>pi5_wall_case.py</code>, then re-run it</th></tr>
+  <tr><td>Lid touches the Ethernet jacks</td><td>Raise <code>ABOVE_HAT</code></td></tr>
+  <tr><td>Lid lip too tight or too loose</td><td>Raise or lower <code>FIT</code> (now 0.25)</td></tr>
+  <tr><td>Stack screws bottom out in the standoffs</td><td>Use M2.5 × 14 screws and set <code>SCREW_L</code> to match. No reprint is needed.</td></tr>
+  <tr><td>Screw heads stand proud of the back</td><td>Raise <code>HEAD_DEPTH</code> (now 1.8) or <code>HEAD_D</code> (now 5.0)</td></tr>
+  <tr><td>Ribbon is pinched at the closed end</td><td>Raise <code>GAP_X_TOP</code> (now 6.0)</td></tr>
+  <tr><td>Wall screw head will not enter the keyhole</td><td>Raise <code>KEY_ENTRY_D</code> (now 9.5) or <code>KEY_HEAD_T</code> (now 3.0)</td></tr>
+</table>
+
+</body>
+</html>
