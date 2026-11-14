@@ -38,3 +38,7 @@ The STLs are generated output committed alongside the script, so regenerate them
 - `box`, `cyl`, and `slot_x` take absolute coordinates (`z0`, `z1`, and so on), not sizes. Geometry is built by adding and subtracting these with `+`, `-`.
 - `base()`, `lid()`, and `template()` each return one part modelled in its assembled position. Reorientation for printing (the lid is flipped, everything is moved to the origin) happens only in `__main__`.
 - The drill template's holes mark where the wall screws end up (the resting end of each keyhole, `KEY_X - KEY_SLOT_L`), not the keyhole entry holes.
+
+## Working with the user
+
+- Always ask questions one at a time: ask one, wait for the answer, then ask the next.
